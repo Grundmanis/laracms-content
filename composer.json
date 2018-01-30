@@ -1,6 +1,6 @@
 {
     "name": "grundmanis/laracms-content",
-    "description": "Laravel cms content module",
+    "description": "Laracms content module",
     "keywords": ["laravel", "cms", "admin", "dashboard", "panel", "content", "module"],
     "license": "MIT",
     "authors": [
