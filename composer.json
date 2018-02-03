@@ -18,7 +18,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Grundmanis\\Laracms\\LaracmsServiceProvider",
+                "Grundmanis\\Laracms\\Modules\\Content\\Providers\\ContentProvider",
                 "Dimsav\\Translatable\\TranslatableServiceProvider"
             ]
         }
