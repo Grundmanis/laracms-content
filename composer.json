@@ -11,7 +11,7 @@
     ],
     "minimum-stability": "stable",
     "require": {
-        "grundmanis/laracms": "dev-master",
+        "grundmanis/laracms": "1.0.*",
         "dimsav/laravel-translatable": "^8.0",
         "php": ">=7.0.0",
         "laravel/framework": "5.5.*"
