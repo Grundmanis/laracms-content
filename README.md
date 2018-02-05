@@ -14,7 +14,7 @@ then in blade files, use `Content::get($slug, $locale = null)` or helper `conten
 ## Installation
 Run 
 ```
-composer require grundmanis/laracms-content @dev
+composer require grundmanis/laracms-content
 ```
 and run migration:
 ```
