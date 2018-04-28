@@ -29,7 +29,7 @@ class ContentRequest extends FormRequest
             'slug' => 'required'
         ];
 
-        foreach(config('translatable.locales') as $locale)
+        foreach(\LocaleAlias::getLocales() as $locale)
         {
             $rules[$locale . '.value'] = 'required';
         }
@@ -40,7 +40,7 @@ class ContentRequest extends FormRequest
     public function attributes()
     {
         $fields = [];
-        foreach(config('translatable.locales') as $locale)
+        foreach(\LocaleAlias::getLocales() as $locale)
         {
             $fields[$locale . '.value'] = $locale .' value';
         }
