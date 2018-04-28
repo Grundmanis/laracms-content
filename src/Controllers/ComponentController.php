@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Grundmanis\Laracms\Modules\Content\Models\LaracmsContent;
 use Grundmanis\Laracms\Modules\Content\Requests\ContentRequest;
 
-class ContentController extends Controller
+class ComponentController extends Controller
 {
 
     /**
