@@ -4,7 +4,6 @@ namespace Grundmanis\Laracms\Modules\Content\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
-use Locale;
 
 class ContentRequest extends FormRequest
 {
@@ -30,7 +29,7 @@ class ContentRequest extends FormRequest
             'slug' => 'required'
         ];
 
-        foreach(Locale::getLocales() as $locale)
+        foreach(\LocaleAlias::getLocales() as $locale)
         {
             $rules[$locale . '.value'] = 'required';
         }
@@ -41,7 +40,7 @@ class ContentRequest extends FormRequest
     public function attributes()
     {
         $fields = [];
-        foreach(Locale::getLocales() as $locale)
+        foreach(\LocaleAlias::getLocales() as $locale)
         {
             $fields[$locale . '.value'] = $locale .' value';
         }
