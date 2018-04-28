@@ -12,8 +12,7 @@
     "minimum-stability": "stable",
     "require": {
         "grundmanis/laracms": "@dev",
-        "dimsav/laravel-translatable": "^8.0",
-        "php": ">=7.0.0"
+        "dimsav/laravel-translatable": ">=8.0"
     },
     "extra": {
         "laravel": {
