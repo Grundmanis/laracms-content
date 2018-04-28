@@ -21,7 +21,9 @@
     <!-- Include Editor JS files. -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.7.3/js/froala_editor.pkgd.min.js"></script>
 
-    <script> $(function() { $('textarea').froalaEditor() }); </script>
+    <script> $(function() { $('textarea').froalaEditor({
+            enter: $.FroalaEditor.ENTER_BR
+        }) }); </script>
 @endsection
 
 @section('content')

@@ -30,7 +30,7 @@ class Content
         $content = $this->content->where('slug', $slug)->first();
 
         if (!$content) {
-            return 'Content does not exist.';
+            return $slug;
         }
 
         if ($locale) {
