@@ -2,6 +2,7 @@
 
 namespace Grundmanis\Laracms\Modules\Content\Providers;
 
+use Grundmanis\Laracms\Facades\MenuFacade;
 use Grundmanis\Laracms\Modules\Content\Content;
 use Grundmanis\Laracms\Modules\Content\Facades\ContentFacade;
 use Illuminate\Foundation\AliasLoader;
@@ -32,6 +33,23 @@ class ContentProvider extends ServiceProvider
 
         $loader = AliasLoader::getInstance();
         $loader->alias('Content', ContentFacade::class);
+
+        $this->addMenuRoutes();
+    }
+
+    /**
+     *
+     */
+    private function addMenuRoutes()
+    {
+        $menu = [
+            'Content' => [
+                'Texts' => 'laracms.content',
+                'Components' => 'laracms.content.component'
+            ]
+        ];
+
+        MenuFacade::addMenu($menu);
     }
 
 }

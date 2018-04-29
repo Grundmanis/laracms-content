@@ -3,24 +3,24 @@
 namespace Grundmanis\Laracms\Modules\Content\Controllers;
 
 use App\Http\Controllers\Controller;
-use Grundmanis\Laracms\Modules\Content\Models\LaracmsContent;
-use Grundmanis\Laracms\Modules\Content\Requests\ContentRequest;
+use Grundmanis\Laracms\Modules\Content\Models\LaracmsComp;
+use Grundmanis\Laracms\Modules\Content\Requests\ComponentRequest;
 
 class ComponentController extends Controller
 {
 
     /**
-     * @var LaracmsContent
+     * @var LaracmsComp
      */
-    protected $content;
+    protected $component;
 
     /**
      * ContentController constructor.
-     * @param LaracmsContent $content
+     * @param LaracmsComp $component
      */
-    public function __construct(LaracmsContent $content)
+    public function __construct(LaracmsComp $component)
     {
-        $this->content = $content;
+        $this->component = $component;
     }
 
     /**
@@ -28,8 +28,8 @@ class ComponentController extends Controller
      */
     public function index()
     {
-        return view('laracms.content::index', [
-            'contents' => $this->content->paginate(10)
+        return view('laracms.content::component.index', [
+            'components' => $this->component->paginate(10)
         ]);
     }
 
@@ -38,46 +38,54 @@ class ComponentController extends Controller
      */
     public function create()
     {
-        return view('laracms.content::form');
+        $components = $this->component
+            ->select('name')
+            ->groupBy('name')
+            ->get();
+
+        return view('laracms.content::component.form', compact('components'));
     }
 
     /**
-     * @param ContentRequest $request
+     * @param ComponentRequest $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(ContentRequest $request)
+    public function store(ComponentRequest $request)
     {
-        $this->content->create($request->all());
-        return redirect()->route('laracms.content')->with('status', 'Content created!');
+
+        dd($request->all());
+
+        $this->component->create($request->all());
+        return redirect()->route('laracms.content.component')->with('status', 'Content created!');
     }
 
     /**
-     * @param LaracmsContent $content
+     * @param LaracmsComp $component
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function edit(LaracmsContent $content)
+    public function edit(LaracmsComp $component)
     {
-        return view('laracms.content::form', compact('content'));
+        return view('laracms.content::component.form', compact('content'));
     }
 
     /**
-     * @param LaracmsContent $content
-     * @param ContentRequest $request
+     * @param LaracmsComp $component
+     * @param ComponentRequest $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(LaracmsContent $content, ContentRequest $request)
+    public function update(LaracmsComp $component, ComponentRequest $request)
     {
-        $content->update($request->all());
+        $component->update($request->all());
         return back()->with('status', 'Content updated!');
     }
 
     /**
-     * @param LaracmsContent $content
+     * @param LaracmsComp $component
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy(LaracmsContent $content)
+    public function destroy(LaracmsComp $component)
     {
-        $content->delete();
-        return redirect()->route('laracms.content')->with('status', 'Content deleted! Make sure to remove it from blade');
+        $component->delete();
+        return redirect()->route('laracms.content.component')->with('status', 'Content deleted! Make sure to remove it from blade');
     }
 }

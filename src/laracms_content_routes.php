@@ -3,29 +3,28 @@
 Route::group([
     'middleware' => ['web', 'laracms.auth'],
     'namespace'  => 'Grundmanis\Laracms\Modules\Content\Controllers',
-    'prefix'     => 'laracms/content/texts'
+    'prefix'     => 'laracms/content'
 ], function () {
 
-    Route::get('/', 'TextController@index')->name('laracms.content.text');
-    Route::get('/create', 'TextController@create')->name('laracms.content.text.create');
-    Route::post('/create', 'TextController@store');
-    Route::get('/edit/{content}', 'TextController@edit')->name('laracms.content.text.edit');
-    Route::post('/edit/{content}', 'TextController@update');
-    Route::get('/delete/{content}', 'TextController@destroy')->name('laracms.content.text.destroy');
+    Route::get('/', 'ContentController@index')->name('laracms.content');
+    Route::get('/create', 'ContentController@create')->name('laracms.content.create');
+    Route::post('/create', 'ContentController@store');
+    Route::get('/edit/{content}', 'ContentController@edit')->name('laracms.content.edit');
+    Route::post('/edit/{content}', 'ContentController@update');
+    Route::get('/delete/{content}', 'ContentController@destroy')->name('laracms.content.destroy');
+
+
+    Route::group([
+        'prefix'     => 'components'
+    ], function () {
+
+        Route::get('/', 'ComponentController@index')->name('laracms.content.component');
+        Route::get('/create', 'ComponentController@create')->name('laracms.content.component.create');
+        Route::post('/create', 'ComponentController@store');
+        Route::get('/edit/{component}', 'ComponentController@edit')->name('laracms.content.component.edit');
+        Route::post('/edit/{component}', 'ComponentController@update');
+        Route::get('/delete/{component}', 'ComponentController@destroy')->name('laracms.content.component.destroy');
+
+    });
 
 });
-
-//Route::group([
-//    'middleware' => ['web', 'laracms.auth'],
-//    'namespace'  => 'Grundmanis\Laracms\Modules\Content\Controllers',
-//    'prefix'     => 'laracms/content/components'
-//], function () {
-//
-//    Route::get('/', 'ComponentController@index')->name('laracms.content');
-//    Route::get('/create', 'ComponentController@create')->name('laracms.content.create');
-//    Route::post('/create', 'ComponentController@store');
-//    Route::get('/edit/{content}', 'ComponentController@edit')->name('laracms.content.edit');
-//    Route::post('/edit/{content}', 'ComponentController@update');
-//    Route::get('/delete/{content}', 'ComponentController@destroy')->name('laracms.content.destroy');
-//
-//});
