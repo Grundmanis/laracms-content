@@ -4,7 +4,7 @@ namespace Grundmanis\Laracms\Modules\Content\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class LaracmsContent extends Model
+class LaracmsContentDynamic extends Model
 {
     use \Dimsav\Translatable\Translatable;
 
@@ -14,15 +14,5 @@ class LaracmsContent extends Model
     public function __construct(array $attributes = [])
     {
         parent::__construct($attributes);
-    }
-
-    /**
-     * Get the relationships for the entity.
-     *
-     * @return array
-     */
-    public function getQueueableRelations()
-    {
-        // TODO: Implement getQueueableRelations() method.
     }
 }
