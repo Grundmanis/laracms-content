@@ -5,6 +5,7 @@ namespace Grundmanis\Laracms\Modules\Content\Providers;
 use Grundmanis\Laracms\Modules\Content\Content;
 use Grundmanis\Laracms\Modules\Content\Facades\ContentFacade;
 use Illuminate\Foundation\AliasLoader;
+use Grundmanis\Laracms\Facades\MenuFacade;
 use Illuminate\Support\ServiceProvider;
 
 class ContentProvider extends ServiceProvider
