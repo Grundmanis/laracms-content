@@ -32,6 +32,10 @@ class ContentProvider extends ServiceProvider
 
         $loader = AliasLoader::getInstance();
         $loader->alias('Content', ContentFacade::class);
+
+        MenuFacade::addMenu([
+            'Content' => 'laracms.content'
+        ]);
     }
 
 }
