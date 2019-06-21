@@ -11,7 +11,7 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "grundmanis/laracms": "v1.0",
+        "grundmanis/laracms": "@dev",
         "dimsav/laravel-translatable": ">=8.0"
     },
     "extra": {
