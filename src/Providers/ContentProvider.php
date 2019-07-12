@@ -19,6 +19,10 @@ class ContentProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__ . '/../views', 'laracms.content');
         $this->loadMigrationsFrom(__DIR__ . '/../migrations');
         $this->loadRoutesFrom(__DIR__ . '/../laracms_content_routes.php');
+
+        $this->publishes([
+            __DIR__.'/../views/' => resource_path('views/laracms/content'),
+        ], 'laracms');
     }
 
     /**
