@@ -13,6 +13,7 @@
                         <h4 class="card-title">{{ __('laracms::admin.laracms_users') }}</h4>
                     </div>
                     <div class="card-body">
+                        @if (count($contents))
                         <div class="table-responsive">
                             <table class="table">
                                 <thead class="text-primary">
@@ -37,8 +38,9 @@
                                                 <i class="fa fa-edit"></i>
                                             </a>
                                             <a title="{{ __('laracms::admin.delete') }}"
-                                               onclick="return confirm('{{ __('laracms::admin.sure_to_delete') }}')"
-                                               href="{{ route('laracms.content.destroy', $content->id) }}" type="button"
+                                               onclick="return confirmDelete('{{ route('laracms.content.destroy', $content->id) }}');"
+                                               href="javascript:void(0);"
+                                               type="button"
                                                rel="tooltip" class="btn btn-danger btn-icon btn-sm ">
                                                 <i class="fa fa-times"></i>
                                             </a>
@@ -49,6 +51,13 @@
                             </table>
                             {{ $contents->links() }}
                         </div>
+                        @else
+                            <blockquote>
+                                <p class="blockquote blockquote-primary">
+                                    {{ __('laracms::admin.no_records') }}
+                                </p>
+                            </blockquote>
+                        @endif
                     </div>
                 </div>
             </div>

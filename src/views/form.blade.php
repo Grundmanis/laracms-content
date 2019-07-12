@@ -11,6 +11,11 @@
                 <h4 class="card-title">{{ __('laracms::admin.menu.content') }}</h4>
             </div>
             <div class="card-body">
+                <div class="form-group">
+                    <label for="">{{ __('laracms::admin.key') }}</label>
+                    <input value="{{ formValue($content ?? null, 'slug') }}" type="text"
+                           class="form-control" name="slug">
+                </div>
                 <div class="nav-tabs-navigation">
                     <div class="nav-tabs-wrapper">
                         <ul id="tabs" class="nav nav-tabs" role="tablist">
@@ -27,11 +32,6 @@
                     @foreach($locales as $key => $locale)
                         <div class="tab-pane @if(!$key) active @endif" id="{{ $locale }}" role="tabpanel"
                              aria-expanded="true">
-                            <div class="form-group">
-                                <label for="">{{ __('laracms::admin.key') }}</label>
-                                <input value="{{ formValue($content ?? null, 'value', $locale) }}" type="text"
-                                       class="form-control" name="{{ $locale }}[slug]">
-                            </div>
                             <div class="form-group">
                                 <label for="">{{ __('laracms::admin.text') }}</label>
                                 <textarea class="form-control" name="{{ $locale }}[value]">{{ formValue($content ?? null, 'value', $locale) }}</textarea>
