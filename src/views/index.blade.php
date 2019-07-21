@@ -29,7 +29,7 @@
                                     <tr>
                                         <td>{{ $content->id }}</td>
                                         <td>{{ $content->slug }}</td>
-                                        <td>{{ $content->value }}</td>
+                                        <td>{{ str_limit($content->value, 60) }}</td>
                                         <td class="text-right">
 
                                             <a title="{{ __('laracms::admin.edit') }}"

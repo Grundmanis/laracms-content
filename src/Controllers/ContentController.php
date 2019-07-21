@@ -52,7 +52,7 @@ class ContentController extends Controller
     {
         $this->content->create($request->all());
 
-        return redirect()->route('laracms.content')->with('status', 'Content created!');
+        return redirect()->route('laracms.content')->with('status', __('laracms::admin.content_created'));
     }
 
     /**
@@ -75,7 +75,7 @@ class ContentController extends Controller
     {
         $content->update($request->all());
 
-        return back()->with('status', 'Content updated!');
+        return back()->with('status', __('laracms::admin.content_updated'));
     }
 
     /**
@@ -86,6 +86,6 @@ class ContentController extends Controller
     {
         $content->delete();
 
-        return redirect()->route('laracms.content')->with('status', 'Content deleted! Make sure to remove it from blade');
+        return redirect()->route('laracms.content')->with('status', __('laracms::admin.content_deleted'));
     }
 }

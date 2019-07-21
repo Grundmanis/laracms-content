@@ -23,7 +23,7 @@ class CreateLaracmsContentsTable extends Migration
         {
             $table->increments('id');
             $table->integer('laracms_content_id')->unsigned();
-            $table->string('value');
+            $table->longText('value');
             $table->string('locale')->index();
 
             $table->unique(['laracms_content_id','locale']);
