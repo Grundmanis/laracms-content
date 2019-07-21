@@ -10,7 +10,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">{{ __('laracms::admin.laracms_users') }}</h4>
+                        <h4 class="card-title">{{ __('laracms::admin.menu.content') }}</h4>
                     </div>
                     <div class="card-body">
                         @if (count($contents))
