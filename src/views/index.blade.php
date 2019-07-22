@@ -21,7 +21,7 @@
                                         <th>#</th>
                                         <th>{{ __('laracms::admin.key') }}</th>
                                         <th>{{ __('laracms::admin.text') }}</th>
-                                        <th class="text-right">{{ __('laracms::admin.action') }}</th>
+                                        <th class="text-right">{{ __('laracms::admin.actions') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
