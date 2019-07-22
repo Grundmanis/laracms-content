@@ -2,7 +2,8 @@
 Route::group([
     'middleware' => ['web', 'laracms.auth', 'laracms.language'],
     'namespace'  => 'Grundmanis\Laracms\Modules\Content\Controllers',
-    'prefix'     => 'laracms/content'
+    'prefix'     => config('laracms.prefix', 'laracms') . '/content',
+    'domain'     => config('laracms.domain')
 ], function () {
 
     Route::get('/', 'ContentController@index')->name('laracms.content');
