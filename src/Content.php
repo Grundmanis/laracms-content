@@ -27,17 +27,18 @@ class Content
      */
     public function get(string $slug, $locale = null)
     {
-        $content = $this->content->where('slug', $slug)->first();
+        $content = $this->content
+            ->firstOrCreate(['slug' => $slug]);
 
         if (!$content) {
-            return $slug;
+            return 'key:' . $slug;
         }
 
         if ($locale) {
-            return $content->translate($locale)->value;
+            return $content->translate($locale)->value ?? $slug;
         }
 
-        return $content->value;
+        return $content->value ?? $slug;
     }
 
 

@@ -9,7 +9,10 @@ class LaracmsContent extends Model
     use \Dimsav\Translatable\Translatable;
 
     public $translatedAttributes = ['value'];
+
     protected $fillable = ['slug'];
+
+    protected $with = ['translations'];
 
     public function __construct(array $attributes = [])
     {
