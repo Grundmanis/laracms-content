@@ -22,7 +22,7 @@ class ContentProvider extends ServiceProvider
 
         $this->publishes([
             __DIR__.'/../views/' => resource_path('views/laracms/content'),
-        ], 'laracms');
+        ], 'laracms_views');
     }
 
     /**

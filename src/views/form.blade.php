@@ -1,7 +1,5 @@
 @extends(view()->exists('laracms.dashboard.layouts.app') ? 'laracms.dashboard.layouts.app' : 'laracms.dashboard::layouts.app', ['page' => __('laracms::admin.menu.content')] )
 
-{{--@include('laracms.dashboard::partials.summernote')--}}
-
 @section('content')
     <form method="post">
         {{ csrf_field() }}
