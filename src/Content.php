@@ -3,6 +3,7 @@
 namespace Grundmanis\Laracms\Modules\Content;
 
 use Grundmanis\Laracms\Modules\Content\Models\LaracmsContent;
+use Illuminate\Support\Facades\App;
 
 class Content
 {
