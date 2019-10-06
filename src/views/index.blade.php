@@ -1,6 +1,9 @@
 @extends(view()->exists('laracms.dashboard.layouts.app') ? 'laracms.dashboard.layouts.app' : 'laracms.dashboard::layouts.app', ['page' => __('laracms::admin.menu.content')] )
 
 @section('content')
+
+    @include('laracms.dashboard::partials.search')
+
     <div class="form-group">
         <a class="btn btn-success" href="{{ route('laracms.content.create') }}">{{ __('laracms::admin.create') }}</a>
     </div>

@@ -5,6 +5,7 @@ namespace Grundmanis\Laracms\Modules\Content\Controllers;
 use App\Http\Controllers\Controller;
 use Grundmanis\Laracms\Modules\Content\Models\LaracmsContent;
 use Grundmanis\Laracms\Modules\Content\Requests\ContentRequest;
+use Illuminate\Http\Request;
 
 class ContentController extends Controller
 {
@@ -23,14 +24,24 @@ class ContentController extends Controller
     }
 
     /**
+     * @param Request $request
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function index()
+    public function index(Request $request)
     {
         $view = view()->exists('laracms.content.index') ? 'laracms.content.index' : 'laracms.content::index';
 
+        $content = $this->content;
+
+        if ($request->q) {
+            $content = $content
+                ->where('slug', 'LIKE', '%'. $request->q .'%')
+                ->orWhereTranslationLike('value', '%'. $request->q .'%')
+            ;
+        }
+
         return view($view, [
-            'contents' => $this->content->paginate(10)
+            'contents' => $content->paginate(config('laracms.per_page'))
         ]);
     }
 
